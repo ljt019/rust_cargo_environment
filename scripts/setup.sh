@@ -11,18 +11,6 @@ log_info() {
 }
 
 main() {
-    # Check if sudo is installed
-    if ! command -v sudo &> /dev/null; then
-        apt update
-        apt install sudo -y
-    fi
-
-    log_info "Updating apt..."
-    sudo apt update
-
-    log_info "Installing git, tmux, htop, nvtop, cmake, python3-dev, cgroup-tools..."
-    sudo apt install git tmux htop nvtop cmake python3-dev cgroup-tools -y
-
     log_info "Installing Rust and Cargo..."
     if ! command -v cargo &> /dev/null; then
         curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
