@@ -3,7 +3,7 @@ import os
 from dotenv import load_dotenv
 from openai import OpenAI
 
-from environments.rust_cargo import load_environment
+from rust_cargo_environment.rust_cargo import load_environment
 
 ################ Eval Config ################
 

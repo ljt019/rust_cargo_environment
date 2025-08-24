@@ -1,7 +1,7 @@
 [project]
-name = "environments"
+name = "rust_cargo_environment"
 version = "0.1.0"
-description = "Add your description here"
+description = "RL training environment using cargo for rewards"
 readme = "README.md"
 authors = [
     { name = "Lucien Thomas", email = "lucienthomas00@gmail.com" }
@@ -13,7 +13,6 @@ dependencies = [
     "verifiers>=0.1.2.post0",
     "huggingface-hub>=0.20.0",
     "wandb>=0.16.0",
-    "nest-asyncio>=1.6.0",
 ]
 
 [build-system]

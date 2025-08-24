@@ -183,6 +183,7 @@ def setup_project(code: str):
 
 def run_cargo_command(command: str, code: str) -> bool:
     """Runs a cargo command and returns success status"""
+    import os
     import shutil
     import subprocess
 
@@ -201,8 +202,15 @@ def run_cargo_command(command: str, code: str) -> bool:
         print(f"Error running cargo {command}: {e}")
         success = False
     finally:
-        # Clean up the temporary directory
+        # Clean up outputs directory
         shutil.rmtree(project_dir)
+
+        tests_dir = os.path.join("outputs", "tests")
+        try:
+            if os.path.exists(tests_dir) and not os.listdir(tests_dir):
+                os.rmdir(tests_dir)
+        except OSError:
+            pass
 
     return success
 
