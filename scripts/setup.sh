@@ -31,21 +31,6 @@ main() {
         log_info "Rust and Cargo are already installed"
     fi
 
-    log_info "Configuring SSH to automatically accept GitHub's host key..."
-    ssh-keyscan github.com >>~/.ssh/known_hosts 2>/dev/null
-
-    log_info "Cloning repository..."
-    git clone git@github.com:PrimeIntellect-ai/prime-environments.git
-
-    log_info "Entering project directory..."
-    cd prime-environments
-
-    log_info "Installing uv..."
-    curl -LsSf https://astral.sh/uv/install.sh | sh
-
-    log_info "Installing pre-commit hooks..."
-    uv run pre-commit install
-
     log_info "Sourcing uv environment..."
     if ! command -v uv &> /dev/null; then
         source $HOME/.local/bin/env
